@@ -1,3 +1,11 @@
+/* Integrantes do Grupo
+ * Felipe Victor Matias - RA 1903306
+ * Lucas Figueiredo Ventura - RA 1701918
+ * Matheus Faria Duarte - RA 1903707
+ * Raquel Meire Paternazi de Souza - RA 1903269
+ * Vinicius Holanda Lima - RA 1903017
+ * */
+
 package ac02;
 import java.util.Random;
 
@@ -15,17 +23,18 @@ public class ContaBancaria {
 		this.saldo = saldo;
 		this.senha = criarSenha(); // Chama método que cria senha aleatória
 		this.correntista = correntista;
-		this.cpmf = 0;
+		this.cpmf = 0; // Inicia em 0 e é incrementada a cada saque realizado
 	}
 	
+	// Método usado para gerar senha aleatória
 	private String criarSenha() {
-	   String s = "";
+	   String s = ""; // 
 	   Random gerador = new Random(); // Gerador aleatório
 			   
 		for (int i = 0; i < 6; i++) { // Gera seis números de 0 a 9 e concatena na string
 	            s += String.valueOf(gerador.nextInt(10));
 	        }
-		return s;	
+		return s;	// Devolve senha criada aleatória com 6 dígitos de 0 a 9.
 	}
 	
 	public String getSenha() {
@@ -53,7 +62,8 @@ public class ContaBancaria {
 	public int getNumeroConta() {
 		return this.numeroConta;
 	}
-
+	
+	// Remove valor do saldo da conta do solicitando e adiciona valor ao saldo da conta destino
 	public void transferir(double valor, ContaBancaria contaDestino) {
 		this.saldo = this.saldo - valor;
 		contaDestino.saldo += valor;
